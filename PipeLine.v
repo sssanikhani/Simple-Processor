@@ -17,7 +17,7 @@ module PipeLine(input clk, rst);
                 Mem_MemRead, ex_RegWrite, Mem_RegWrite, id_Data1, id_Data2, opCode, funcCode, 
                     id_Rt, id_Rs, ex_Rt, ex_Rs, Mem_Rd, wb_Rd);
 
-    Controller cu(opCode, funcCode, op, RegDst_pre, RegWrite_pre, aluSrc_pre, MemRead_pre, 
+    Controller cu(opCode, funcCode, RegDst_pre, RegWrite_pre, aluSrc_pre, MemRead_pre, 
                     MemWrite_pre, MemToReg_pre, aluOp_pre);
 
     OPMux opm(op, RegDst_pre, RegWrite_pre, aluSrc_pre, MemRead_pre, MemWrite_pre, MemToReg_pre, aluOp_pre, 
@@ -28,14 +28,5 @@ module PipeLine(input clk, rst);
     HazardUnit hu(ex_MemRead, ex_RegWrite, id_Rs, id_Rt, ex_Rt, ex_Rd, pcWrite, IF_ID_RegWrite, op);
 
     SubController sc(opCode, id_Data1, id_Data2, pcSrc, isJ, if_flush);
-
-    // module HazardUnit(input IDEX_MemRead, IDEX_RegWrite, input [4:0] IFID_RegisterRs, IFID_RegisterRt, 
-    //                         IDEX_RegisterRt, IDEX_RegisterRd, output PCWrite, IFIDWrite, OP);
-    
-    // ForwardingUnit(input EXMEM_RegWrite, MEMWB_RegWrite, input [4:0] IDEX_RegisterRs, IDEX_RegisterRt, 
-    //               EXMEM_RegisterRd, MEMWB_RegisterRd, output [1:0] ForwardA, ForwardB);
-
-    // SubControllerAndComprator(input [5:0]OpCode, 
-        // input [31:0] ReadData1, ReadData2, output PCSrc, IsJ, IF_FLUSH_TO_IDEXReg);
 
 endmodule
