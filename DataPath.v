@@ -11,7 +11,7 @@ module DataPath(input clk, rst, isJ, pcSrc, pcWrite, IF_ID_RegWrite, id_if_flush
                 Mem_ALURes, ex_ALURes, ex_MemWriteData, Mem_MemWriteData, Mem_MemOut,
                 wb_MemOut, wb_ALURes;
     wire [25:0] jAddr;
-    wire [4:0] id_Rd, ex_Rd;
+    wire [4:0] id_Rd, ex_Rd, ex_RegDest;
     wire [2:0] ex_ALUOp;
     wire ex_if_flush, ex_MemToReg, ex_RegWrite, ex_MemWrite, ex_ALUSrc, 
             ex_RegDst, Mem_MemToReg, wb_MemToReg;
@@ -35,6 +35,7 @@ module DataPath(input clk, rst, isJ, pcSrc, pcWrite, IF_ID_RegWrite, id_if_flush
     
     EX ex_section(ex_RegDst, ex_ALUSrc, ex_ALUOp, ex_forwardA, ex_forwardB, ex_Data1, ex_Data2, Mem_ALURes, 
                         wb_RegWriteData, ex_immediate, ex_Rt, ex_Rd, ex_ALURes, ex_MemWriteData, ex_RegDest);
+
 
     
     

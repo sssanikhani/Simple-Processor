@@ -2,8 +2,8 @@
 module Rfile(input clk, rst, regWrite, input [4:0] inR1, inR2, writeR, input [31:0] writeRData, output reg [31:0] Rdata1, Rdata2);
     reg [31:0] main [0:31];
     integer i;
-    always main[0] = 32'b0;
-    always @(clk , posedge rst) begin
+    always @(main[0]) main[0] = 32'b0;
+    always @(posedge rst, clk, regWrite) begin
         #1
         if(rst) begin
             Rdata1 = 32'b0;
@@ -13,7 +13,7 @@ module Rfile(input clk, rst, regWrite, input [4:0] inR1, inR2, writeR, input [31
             end
         end
         else begin
-            if(clk & regWrite) begin
+            if(clk && regWrite) begin
                 main[writeR] = writeRData;
             end
         end

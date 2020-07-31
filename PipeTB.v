@@ -1,9 +1,10 @@
 `timescale 1ns/1ns
-module TB();
+module PipeTB();
 
     reg clk, rst;
+    wire MemToReg;
 
-    PipeLine MipsPipe(clk, rst);
+    PipeLine MipsPipe(clk, rst, MemToReg);
     
     
     initial begin
