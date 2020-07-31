@@ -1,11 +1,11 @@
 `timescale 1ns/1ns
-module PipeLine(input clk, rst, output MemToReg_pre);
+module PipeLine(input clk, rst);
 
     wire [5:0] opCode, funcCode;
     wire isJ, pcSrc, pcWrite, IF_ID_RegWrite, if_flush, MemToReg, id_RegWrite, 
                 Mem_RegWrite, ex_RegWrite, wb_RegWrite, id_MemRead, ex_MemRead, 
                     Mem_MemRead, MemWrite, aluSrc, RegDst, op, RegDst_pre, 
-                    RegWrite_pre, aluSrc_pre, MemRead_pre, MemWrite_pre;
+                    RegWrite_pre, aluSrc_pre, MemRead_pre, MemWrite_pre, MemToReg_pre;
     wire [31:0] id_Data1, id_Data2;
     wire [2:0] aluOp, aluOp_pre;
     wire [4:0] id_Rt, id_Rs, ex_Rt, ex_Rs, ex_Rd, Mem_Rd, wb_Rd;

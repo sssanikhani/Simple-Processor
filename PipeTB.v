@@ -2,9 +2,8 @@
 module PipeTB();
 
     reg clk, rst;
-    wire MemToReg;
 
-    PipeLine MipsPipe(clk, rst, MemToReg);
+    PipeLine MipsPipe(clk, rst);
     
     
     initial begin
