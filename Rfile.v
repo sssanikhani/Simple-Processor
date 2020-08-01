@@ -4,7 +4,7 @@ module Rfile(input clk, rst, regWrite, input [4:0] inR1, inR2, writeR, input [31
     integer i;
     always @(main[0]) main[0] = 32'b0;
     always @(posedge rst, clk, regWrite) begin
-        #1
+        // #1
         if(rst) begin
             Rdata1 = 32'b0;
             Rdata2 = 32'b0;

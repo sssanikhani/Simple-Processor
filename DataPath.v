@@ -2,7 +2,7 @@
 module DataPath(input clk, rst, isJ, pcSrc, pcWrite, IF_ID_RegWrite, id_if_flush, id_MemToReg, 
                     id_RegWrite, id_MemRead, id_MemWrite, id_aluSrc, id_RegDst,
                     input [2:0] id_ALUOp, input [1:0] ex_forwardA, ex_forwardB, 
-                    output ex_MemRead, Mem_MemRead, Mem_RegWrite, wb_RegWrite,
+                    output ex_MemRead, Mem_RegWrite, wb_RegWrite,
                     output [31:0] id_Data1, id_Data2, output [5:0] opCode, funcCode, 
                     output [4:0] id_Rt, id_Rs, ex_Rt, ex_Rs, Mem_Rd, wb_Rd);
 
