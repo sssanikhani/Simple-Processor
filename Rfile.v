@@ -13,7 +13,7 @@ module Rfile(input clk, rst, regWrite, input [4:0] inR1, inR2, writeR, input [31
             end
         end
         else begin
-            #1
+            #2
             if(clk && regWrite) begin
                 main[writeR] = writeRData;
             end

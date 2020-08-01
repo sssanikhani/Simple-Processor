@@ -4,12 +4,12 @@ module MEM_WB(input clk, rst, wb_MemToReg_in, wb_RegWrite_in, input [31:0] MemRe
 
     wire ld = 1;
 
-    Reg1 wb_MemToReg(clk, rst, ld, wb_MemToReg_in, wb_MemToReg_out);
-    Reg1 wb_RegWrite(clk, rst, ld, wb_RegWrite_in, wb_RegWrite_out);
+    Reg1_1ns wb_MemToReg(clk, rst, ld, wb_MemToReg_in, wb_MemToReg_out);
+    Reg1_1ns wb_RegWrite(clk, rst, ld, wb_RegWrite_in, wb_RegWrite_out);
     
-    Reg32 MemRes(clk, rst, ld, MemRes_in, MemRes_out);
-    Reg32 ALURes(clk, rst, ld, ALURes_in, ALURes_out);
+    Reg32_1ns MemRes(clk, rst, ld, MemRes_in, MemRes_out);
+    Reg32_1ns ALURes(clk, rst, ld, ALURes_in, ALURes_out);
     
-    Reg5 RegDest(clk, rst, ld, RegDest_in, RegDest_out);
+    Reg5_1ns RegDest(clk, rst, ld, RegDest_in, RegDest_out);
 
 endmodule
