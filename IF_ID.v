@@ -5,7 +5,7 @@ module IF_ID(input clk, rst, if_flush, ld,
 
     wire flush;
     assign flush = rst | if_flush;
-    Reg32_4ns addr(clk, flush, ld, addr_in, addr_out);
-    Reg32_4ns instr(clk, flush, ld, instr_in, instr_out);
+    Reg32_1ns addr(clk, flush, ld, addr_in, addr_out);
+    Reg32_1ns instr(clk, flush, ld, instr_in, instr_out);
 
 endmodule

@@ -5,7 +5,7 @@ module IF(input clk, rst, PCWrite, pcSrc, isJ, input [31:0] branch_addr, input [
     wire [31:0] num4 = 32'b00000000000000000000000000000100;
 
 
-    Reg32_4ns pcReg(clk, rst, PCWrite, pcIn, pcOut);
+    Reg32_1ns pcReg(clk, rst, PCWrite, pcIn, pcOut);
     jAddressTo32 jaddr(j_addr, pcOut[31:28], final_jAddr);
     Adder plus4(num4, pcOut, nextAddress);
     insMem instMemory(pcOut, inst);
